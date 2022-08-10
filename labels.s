@@ -1,0 +1,19 @@
+// The program will print 'Y' if the result is 0, and 'N' if the result is non-zero
+START	INP
+	STA FIFTY
+	INP
+	STA SIXTY
+	LDA VAR1
+	ADD FIFTY
+	SUB SIXTY
+	BRZ ISZERO
+	LDA NO
+	BRA PRINT
+ISZERO	LDA YES
+PRINT	OTC
+	HLT
+VAR1	DAT 10
+YES	DAT 89
+NO	DAT 78
+FIFTY	DAT
+SIXTY	DAT
