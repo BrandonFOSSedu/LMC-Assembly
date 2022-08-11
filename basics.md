@@ -199,3 +199,27 @@ TWELVE	DAT 100 // d
 INC	DAT 1
 POS	DAT 
 
+Bonus Example: Using a loop and self modifying code to print "hello, world".
+```
+LOOP	LDA ONE
+	BRZ END
+	OTC
+	LDA 00
+	ADD INC
+	STA 00
+	BRA LOOP
+END	HLT
+INC	DAT 1
+ONE	DAT 104 // h
+TWO	DAT 101 // e
+THREE	DAT 108 // l
+FOUR	DAT 108 // l
+FIVE	DAT 111 // o
+SIX	DAT 44  // ,
+SEVEN	DAT 32  // SPACE
+EIGHT	DAT 119 // w
+NINE	DAT 111 // o
+TEN	DAT 114 // r
+ELEVEN	DAT 108 // l
+TWELVE	DAT 100 // d
+
