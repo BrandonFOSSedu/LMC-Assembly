@@ -40,12 +40,73 @@ Example 1: Load the value stored by the 'DAT' directive (hard coded memory addre
 	DAT 100
 ``` 
 
-Example 2: Load the value at the label VAR1 (named memory address).
+Example 2: Load the value at the label VAL1 (named memory address).
 ```
-	LDA VAR1
+	LDA VAL1
 	OUT
 	HLT
-VAR1	DAT 22
+VAL1	DAT 22
 ```
 
+## Arithmetic
+CPUs contain an "Arithmetic-Logical Unit", which is capable of the four main arithmetic operations and a number of logic operations. Unfortunately, the LMC only has two arithmetic operations: 'ADD' and 'SUB'. Both operations take the current value of the accumulator register and then add or subtract the value at the memory location specified.
 
+Example 1: Add user input to data value at label VAL1.
+```
+	INP
+	ADD VAL1
+	OUT
+	HLT
+VAL1	DAT 14
+```
+
+Example 2: Subtract data value at label VAL1 from user input.
+```
+	INP
+	SUB VAL1
+	OUT
+	HLT
+VAL1	DAT 998
+```
+
+Example 3: Perform two operations using 3 values from user and store result at label RESULT.
+```
+	INP
+	STA INPUT1
+	INP
+	STA INPUT2
+	INP
+	ADD INPUT1
+	SUB INPUT2
+	STA RESULT
+	HLT
+RESULT	DAT
+INPUT1	DAT
+INPUT2	DAT
+```
+
+## Branching
+A CPU will execute it's instructions in sequence one after the other by default. However, there are special *branching* instructions that change the flow of execution by *directly changing* the the program counter register. Using the three branching instructions ('BRA', 'BRZ', & 'BRP'), programmers can conditionally execute specific sections of code. Just like with data, the usage of labels lets programmers name the memory address to branch to.
+
+### 'BRA' - Unconditional Branch
+Example 1: Unconditional branch jumps over section of code.
+```
+	LDA VAL1
+	ADD VAL1
+	BRA SKIP // The next two lines will never be executed
+	ADD VAL1
+	ADD VAL1
+SKIP	OUT
+	HLT
+```
+
+Example 2: Infinite Loop that outputs a running sum of user input.
+```
+LOOP	INP
+	ADD VAL1
+	STA VAL1
+	OUT
+	BRA LOOP
+	HLT
+VAL1	DAT 0
+```
