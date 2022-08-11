@@ -110,3 +110,92 @@ LOOP	INP
 	HLT
 VAL1	DAT 0
 ```
+
+### BRZ - Branch when accumulator is zero
+
+Example 1: Output 0 if both input are equal, otherwise halt
+```
+	INP
+	STA INPUT1
+	INP
+	SUB INPUT1
+	BRZ PRINT
+	HLT
+PRINT	OUT
+	HLT
+INPUT1	DAT
+```
+
+### BRP - Branch when accumulator is zero or positive
+
+Example 1: Output the larger of two numbers
+```
+	INP
+	STA INPUT1
+	INP
+	STA INPUT2
+	SUB INPUT1
+	BRP FIRST
+	LDA INPUT2
+	BRA PRINT
+FIRST	LDA INPUT2
+PRINT	OUT
+	HLT
+INPUT1	DAT
+INPUT2	DAT
+```
+
+## ASCII - Output text based on ASCII code table
+Inside of a computer all data is represented as numbers. A program has to decide whether to treat a value as a machine instruction, memory address, number, or text character. The American Standard Code for Information Interchange (ASCII) character encoding defines which value correspond to the different letters of the alphabet, as well as some special characters like punctuation. The LMC has a special instruction 'OTC' that will output a single ASCII character based on the value in the accumulator.
+
+Example 1: Output user input as ASCII characters until input is 0.
+```
+LOOP	INP
+	BRZ END
+	OTC
+	BRA LOOP
+END	HLT
+```
+
+Example 2: Output the string "hello, world"
+```
+	LDA ONE
+	OTC
+	LDA TWO
+	OTC
+	LDA THREE
+	OTC
+	LDA FOUR
+	OTC
+	LDA FIVE
+	OTC
+	LDA SIX
+	OTC
+	LDA SEVEN
+	OTC
+	LDA EIGHT
+	OTC
+	LDA NINE
+	OTC
+	LDA TEN
+	OTC
+	LDA ELEVEN
+	OTC
+	LDA TWELVE
+	OTC
+	HLT
+ONE	DAT 104 // h
+TWO	DAT 101 // e
+THREE	DAT 108 // l
+FOUR	DAT 108 // l
+FIVE	DAT 111 // o
+SIX	DAT 44  // ,
+SEVEN	DAT 32  // SPACE
+EIGHT	DAT 119 // w
+NINE	DAT 111 // o
+TEN	DAT 114 // r
+ELEVEN	DAT 108 // l
+TWELVE	DAT 100 // d
+INC	DAT 1
+POS	DAT 
+
