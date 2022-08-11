@@ -198,6 +198,7 @@ ELEVEN	DAT 108 // l
 TWELVE	DAT 100 // d
 INC	DAT 1
 POS	DAT 
+```
 
 Bonus Example: Using a loop and self modifying code to print "hello, world".
 ```
@@ -222,4 +223,4 @@ NINE	DAT 111 // o
 TEN	DAT 114 // r
 ELEVEN	DAT 108 // l
 TWELVE	DAT 100 // d
-
+```
