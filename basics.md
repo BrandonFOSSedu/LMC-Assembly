@@ -1,5 +1,5 @@
 # LMC Assembly Basics
-The Little Man Computer provides a simple model of a computer: CPU, RAM, input, output, and storage. Though the LMC is simple, the assembly code snippets below cover the *entire* range of fundamental programming constructs found in every other programming language. After reading and working through these examples, students will have basic understanding of how basic programming techniques are implemented at a low level.
+The Little Man Computer provides a simple model of a computer: CPU, RAM, input, output, and storage. Though the LMC is simple, the assembly code snippets below cover the most of fundamental programming constructs found in every other programming language (no arrays, functions, objects). After reading and working through these examples, students will have basic understanding of how basic programming techniques are implemented at a low level.
 
 ## Data
 There are two main ways to get data into the LMC CPU: user input and data directives. Data in the LMC is defined as a *number* between 999 and -999.
