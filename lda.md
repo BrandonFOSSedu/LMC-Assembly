@@ -18,5 +18,8 @@ The load instruction, `LDA`, is used to move data *into* the CPU. Loading data f
 ## Using Labels
 Keeping track of the memory addresses for your data is very error prone. Assembly languages provide *labels* to make programming with memory addresses easier. Rather than remembering or calculating the location of memory by hand, labels let the programmer give a name to their data and the assembler program converts those label names into the actual addresses.
 
-`LDA myNum  
-myNum  dat  12`
+`LDA myNum`  
+`myNum  dat  12`
+
+In the above example, the label "myNum" is used to refer to the location of the data (the value 12).  
+
