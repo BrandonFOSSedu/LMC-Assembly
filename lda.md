@@ -11,7 +11,7 @@ The LMC assembly language uses 3 letter mnemonics. Refer to the documentation ab
 The load instruction, `LDA`, is used to move data *into* the CPU. Loading data from RAM is the primary way the processor acquires data to process.
 
 ### Examples
-`LDA 45  // Load data from memory address 45 into the accumulator`
+`LDA 45  // Load data from memory address 45 into the accumulator`  
 `LDA 99  // Load data from memory address 99 into the accumulator`
 
 
