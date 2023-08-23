@@ -200,27 +200,23 @@ INC	DAT 1
 POS	DAT 
 ```
 
-Bonus Example: Using a loop and self modifying code to print "hello, world".
+Bonus Example: Using a loop and self modifying code to print the ASCII encoded string that the user inputs.
 ```
-LOOP	LDA ONE
-	BRZ END
-	OTC
-	LDA 00
-	ADD INC
-	STA 00
-	BRA LOOP
-END	HLT
-INC	DAT 1
-ONE	DAT 104 // h
-TWO	DAT 101 // e
-THREE	DAT 108 // l
-FOUR	DAT 108 // l
-FIVE	DAT 111 // o
-SIX	DAT 44  // ,
-SEVEN	DAT 32  // SPACE
-EIGHT	DAT 119 // w
-NINE	DAT 111 // o
-TEN	DAT 114 // r
-ELEVEN	DAT 108 // l
-TWELVE	DAT 100 // d
+input   INP
+        BRZ loop
+store   STA string
+        LDA store
+        ADD one
+        STA store
+        BRA input
+loop    LDA string
+        BRZ end
+        OTC
+        LDA loop
+        ADD one
+        STA loop
+        BRA loop
+end     HLT
+one     DAT 1
+string  DAT
 ```
